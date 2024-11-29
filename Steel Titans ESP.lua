@@ -9,16 +9,11 @@ while getgenv().E == true do
 	for i, v in ipairs(workspace:GetChildren()) do
 		if v:IsA('Model') then
 			if v.Name ~= 'Map' and v.Name ~= 'Lobby' and v.Name ~= 'Ignore' and v.Name ~= 'Spawns' and v.Name ~= 'PlacementGhosts' and v.Name ~= 'ArmorHolder' and v.Name ~= 'TreesContainer' and v.Name ~= 'Bushes' then
-				if v:FindFirstChild('Owner') and v:FindFirstChild('Immunity') and v:FindFirstChild('Alive') then
+				if v:FindFirstChild('Owner') and v:FindFirstChild('Immunity') and v:FindFirstChild('Alive') and v:FindFirstChild('Alive').Value == true then
 					
 					local h = Instance.new("Highlight")
 					h.Parent = game:GetService("CoreGui")
 					h.Adornee = v
-					if v:FindFirstChild('Alive').Value == true then
-						h.FillTransparency = .5
-					else
-						h.FillTransparency = .9
-					end
 					h.OutlineTransparency = 1
 				end
 			end
